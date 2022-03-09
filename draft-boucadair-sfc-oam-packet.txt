@@ -144,9 +144,9 @@ OLD:
 NEW:
 
    O bit:  Setting this bit indicates an SFC OAM packet.  Such a packet
-      is any NSH-encapasulated packet that exclusively includes OAM
-      data.  An OAM data can be included in the Fixed-Length Context
-      Header, optional Context Headers, and/or the inner packet.
+      is any NSH-encapsulated packet that exclusively includes OAM data.
+      An OAM data can be included in the Fixed-Length Context Header,
+      optional Context Headers, and/or the inner packet.
 
       The O bit is typically set by an OAM controller or a final
       destination of an SFC OAM packet that triggers a response (e.g., a

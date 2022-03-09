@@ -124,7 +124,7 @@ NEW:
 
       <t><list style="hanging">
           <t hangText="O bit:">Setting this bit indicates an SFC OAM packet.
-          Such a packet is any NSH-encapasulated packet that exclusively
+          Such a packet is any NSH-encapsulated packet that exclusively
           includes OAM data. An OAM data can be included in the Fixed-Length
           Context Header, optional Context Headers, and/or the inner packet.
           <vspace blankLines="1" />The O bit is typically set by an OAM
