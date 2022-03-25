@@ -4,12 +4,12 @@
 
 sfc                                                         M. Boucadair
 Internet-Draft                                                    Orange
-Updates: 8300 (if approved)                                 9 March 2022
+Updates: 8300 (if approved)                                25 March 2022
 Intended status: Standards Track                                        
-Expires: 10 September 2022
+Expires: 26 September 2022
 
 
-   An Update to the OAM Behavior in the Network Service Header (NSH)
+      OAM Packet and Behavior in the Network Service Header (NSH)
                    draft-boucadair-sfc-oam-packet-03
 
 Abstract
@@ -35,7 +35,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 September 2022.
+   This Internet-Draft will expire on 26 September 2022.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Boucadair               Expires 10 September 2022               [Page 1]
+Boucadair               Expires 26 September 2022               [Page 1]
 
 Internet-Draft               SFC OAM Packet                   March 2022
 
@@ -101,15 +101,15 @@ Table of Contents
       generating NSH OAM packets.  An SFC data plane element may behave
       as an OAM control element.
 
-   OAM data:  refers to an OAM command (e.g., Connectivity Verification
+   OAM data:  refers to an OAM request (e.g., Connectivity Verification
       and Continuity Checks [RFC7276]), any data that influences how to
-      execute a companion OAM command (e.g., identity of a terminating
-      Service Function (SF)), the output data of an OAM command, and any
+      execute a companion OAM request (e.g., identity of a terminating
+      Service Function (SF)), the output data of an OAM request, and any
       combination thereof.
 
 
 
-Boucadair               Expires 10 September 2022               [Page 2]
+Boucadair               Expires 26 September 2022               [Page 2]
 
 Internet-Draft               SFC OAM Packet                   March 2022
 
@@ -165,7 +165,7 @@ NEW:
 
 
 
-Boucadair               Expires 10 September 2022               [Page 3]
+Boucadair               Expires 26 September 2022               [Page 3]
 
 Internet-Draft               SFC OAM Packet                   March 2022
 
@@ -212,6 +212,8 @@ Internet-Draft               SFC OAM Packet                   March 2022
 
    Data plane SFC-related security considerations, including privacy,
    are discussed in Section 6 of [RFC7665] and Section 8 of [RFC8300].
+   Additional security considerations related to SFC OAM are discussed
+   in Section 9 of [RFC8924].
 
    Any data included in an SFC OAM packet SHOULD be integrity-protected
    [RFC9145].
@@ -219,9 +221,7 @@ Internet-Draft               SFC OAM Packet                   March 2022
 
 
 
-
-
-Boucadair               Expires 10 September 2022               [Page 4]
+Boucadair               Expires 26 September 2022               [Page 4]
 
 Internet-Draft               SFC OAM Packet                   March 2022
 
@@ -229,7 +229,7 @@ Internet-Draft               SFC OAM Packet                   March 2022
 6.  Acknowledgements
 
    Thanks to Jim Guichard, Greg Mirsky, Joel Halpern, Christian
-   Jacquenet, and Dirk von-Hugo for the comments.
+   Jacquenet, Dirk von-Hugo, and Carlos Pignataro for the comments.
 
 7.  References
 
@@ -277,7 +277,7 @@ Internet-Draft               SFC OAM Packet                   March 2022
 
 
 
-Boucadair               Expires 10 September 2022               [Page 5]
+Boucadair               Expires 26 September 2022               [Page 5]
 
 Internet-Draft               SFC OAM Packet                   March 2022
 
@@ -333,4 +333,4 @@ Author's Address
 
 
 
-Boucadair               Expires 10 September 2022               [Page 6]
+Boucadair               Expires 26 September 2022               [Page 6]

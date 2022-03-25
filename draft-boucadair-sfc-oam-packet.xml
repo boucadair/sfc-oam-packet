@@ -13,8 +13,8 @@
 <rfc category="std" docName="draft-boucadair-sfc-oam-packet-03"
      ipr="trust200902" updates="8300">
   <front>
-    <title abbrev="SFC OAM Packet">An Update to the OAM Behavior in the
-    Network Service Header (NSH)</title>
+    <title abbrev="SFC OAM Packet">OAM Packet and Behavior in the Network
+    Service Header (NSH)</title>
 
     <author fullname="Mohamed Boucadair" initials="M." surname="Boucadair">
       <organization>Orange</organization>
@@ -39,6 +39,20 @@
     <date />
 
     <workgroup>sfc</workgroup>
+
+    <keyword>Diagnostic</keyword>
+
+    <keyword>Troubelshooting</keyword>
+
+    <keyword>Service Function Chaining</keyword>
+
+    <keyword>Automation</keyword>
+
+    <keyword>SDN</keyword>
+
+    <keyword>Programmable Networks</keyword>
+
+    <keyword>Service Differentiation</keyword>
 
     <abstract>
       <t>This document clarifies an ambiguity in the Network Service Header
@@ -80,11 +94,11 @@
           capable of generating NSH OAM packets. An SFC data plane element may
           behave as an OAM control element.</t>
 
-          <t hangText="OAM data:">refers to an OAM command (e.g., Connectivity
+          <t hangText="OAM data:">refers to an OAM request (e.g., Connectivity
           Verification and Continuity Checks <xref target="RFC7276"></xref>),
-          any data that influences how to execute a companion OAM command
+          any data that influences how to execute a companion OAM request
           (e.g., identity of a terminating Service Function (SF)), the output
-          data of an OAM command, and any combination thereof.</t>
+          data of an OAM request, and any combination thereof.</t>
 
           <t hangText="User data:">refers to user packets cited in Section 5.7
           of <xref target="RFC7665"></xref>.</t>
@@ -177,7 +191,9 @@ NEW:
     <section anchor="security" title="Security Considerations">
       <t>Data plane SFC-related security considerations, including privacy,
       are discussed in Section 6 of <xref target="RFC7665"></xref> and Section
-      8 of <xref target="RFC8300"></xref>.</t>
+      8 of <xref target="RFC8300"></xref>. Additional security considerations
+      related to SFC OAM are discussed in Section 9 of <xref
+      target="RFC8924"></xref>. </t>
 
       <t>Any data included in an SFC OAM packet SHOULD be integrity-protected
       <xref target="RFC9145"></xref>.</t>
@@ -185,7 +201,7 @@ NEW:
 
     <section anchor="ack" title="Acknowledgements">
       <t>Thanks to Jim Guichard, Greg Mirsky, Joel Halpern, Christian
-      Jacquenet, and Dirk von-Hugo for the comments.</t>
+      Jacquenet, Dirk von-Hugo, and Carlos Pignataro for the comments.</t>
     </section>
   </middle>
 
