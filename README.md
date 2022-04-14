@@ -1,7 +1,7 @@
 # SFC OAM Packet
-repo for draft-boucadair-sfc-oam-packet
+repo for draft-ietf-sfc-oam-packet
 
 
-# [Editor Copy vs. Public Copy](https://www.ietf.org/rfcdiff?url1=draft-boucadair-sfc-oam-packet&url2=https://raw.githubusercontent.com/boucadair/sfc-oam-packet/master/draft-boucadair-sfc-oam-packet.txt) 
+# [Editor Copy vs. Public Copy](https://www.ietf.org/rfcdiff?url1=draft-ietf-sfc-oam-packet&url2=https://raw.githubusercontent.com/boucadair/sfc-oam-packet/master/draft-ietf-sfc-oam-packet.txt) 
 
-# Tinyurl: https://tinyurl.com/sfc-oam-packet-latest
+# Tinyurl: https://tinyurl.com/oam-packet-latest
