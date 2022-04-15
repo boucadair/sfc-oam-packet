@@ -90,7 +90,7 @@
           architecture <xref target="RFC7665"></xref> and further refined in
           <xref target="RFC8300"></xref>.</t>
 
-          <t hangText="OAM control element:">an NSH-aware elements that is
+          <t hangText="OAM control element:">an NSH-aware element that is
           capable of generating NSH OAM packets. An SFC data plane element may
           behave as an OAM control element.</t>
 
@@ -172,12 +172,12 @@ NEW:
           OAM procedures SHOULD discard packets with O bit set, but MAY
           support a configurable parameter to enable forwarding received NSH
           OAM packets unmodified to the next element in the chain. Forwarding
-          NSH OAM packets unmodified by SFC elements that do not support SFC
-          OAM procedures may be acceptable for a subset of OAM functions, but
-          it can result in unexpected outcomes for others; thus, it is
-          recommended to analyze the impact of forwarding an NSH OAM packet
-          for all OAM functions prior to enabling this behavior. The
-          configurable parameter MUST be disabled by default. <vspace
+          NSH OAM packets unmodified by SFC data plane elements that do not
+          support SFC OAM procedures may be acceptable for a subset of OAM
+          functions, but it can result in unexpected outcomes for others;
+          thus, it is recommended to analyze the impact of forwarding an NSH
+          OAM packet for all OAM functions prior to enabling this behavior.
+          The configurable parameter MUST be disabled by default. <vspace
           blankLines="1" />The actual format and additional processing of NSH
           OAM packets is outside the scope of this specification.</t>
         </list></t>
@@ -200,7 +200,7 @@ NEW:
       <xref target="RFC9145"></xref>.</t>
     </section>
 
-    <section anchor="ack" title="Acknowledgements">
+    <section anchor="ack" title="Acknowledgments">
       <t>Thanks to Jim Guichard, Greg Mirsky, Joel Halpern, Christian
       Jacquenet, Dirk von-Hugo, Carlos Pignataro, and Frank Brockners for the
       comments.</t>

@@ -65,7 +65,7 @@ Table of Contents
    3.  An Update to RFC8300  . . . . . . . . . . . . . . . . . . . .   3
    4.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   4
    5.  Security Considerations . . . . . . . . . . . . . . . . . . .   4
-   6.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   5
+   6.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .   5
    7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   5
      7.1.  Normative References  . . . . . . . . . . . . . . . . . .   5
      7.2.  Informative References  . . . . . . . . . . . . . . . . .   5
@@ -97,7 +97,7 @@ Table of Contents
       Classifier as defined in the SFC data plane architecture [RFC7665]
       and further refined in [RFC8300].
 
-   OAM control element:  an NSH-aware elements that is capable of
+   OAM control element:  an NSH-aware element that is capable of
       generating NSH OAM packets.  An SFC data plane element may behave
       as an OAM control element.
 
@@ -192,11 +192,11 @@ Internet-Draft               SFC OAM Packet                   April 2022
       support SFC OAM procedures SHOULD discard packets with O bit set,
       but MAY support a configurable parameter to enable forwarding
       received NSH OAM packets unmodified to the next element in the
-      chain.  Forwarding NSH OAM packets unmodified by SFC elements that
-      do not support SFC OAM procedures may be acceptable for a subset
-      of OAM functions, but it can result in unexpected outcomes for
-      others; thus, it is recommended to analyze the impact of
-      forwarding an NSH OAM packet for all OAM functions prior to
+      chain.  Forwarding NSH OAM packets unmodified by SFC data plane
+      elements that do not support SFC OAM procedures may be acceptable
+      for a subset of OAM functions, but it can result in unexpected
+      outcomes for others; thus, it is recommended to analyze the impact
+      of forwarding an NSH OAM packet for all OAM functions prior to
       enabling this behavior.  The configurable parameter MUST be
       disabled by default.
 
@@ -226,7 +226,7 @@ Boucadair                Expires 17 October 2022                [Page 4]
 Internet-Draft               SFC OAM Packet                   April 2022
 
 
-6.  Acknowledgements
+6.  Acknowledgments
 
    Thanks to Jim Guichard, Greg Mirsky, Joel Halpern, Christian
    Jacquenet, Dirk von-Hugo, Carlos Pignataro, and Frank Brockners for
