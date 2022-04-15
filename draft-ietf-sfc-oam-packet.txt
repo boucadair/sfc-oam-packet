@@ -4,9 +4,9 @@
 
 sfc                                                         M. Boucadair
 Internet-Draft                                                    Orange
-Updates: 8300 (if approved)                                14 April 2022
+Updates: 8300 (if approved)                                15 April 2022
 Intended status: Standards Track                                        
-Expires: 16 October 2022
+Expires: 17 October 2022
 
 
       OAM Packet and Behavior in the Network Service Header (NSH)
@@ -35,7 +35,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 October 2022.
+   This Internet-Draft will expire on 17 October 2022.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Boucadair                Expires 16 October 2022                [Page 1]
+Boucadair                Expires 17 October 2022                [Page 1]
 
 Internet-Draft               SFC OAM Packet                   April 2022
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Boucadair                Expires 16 October 2022                [Page 2]
+Boucadair                Expires 17 October 2022                [Page 2]
 
 Internet-Draft               SFC OAM Packet                   April 2022
 
@@ -143,20 +143,20 @@ OLD:
 
 NEW:
 
-   O bit:  Setting this bit indicates an SFC OAM packet.  Such a packet
+   O bit:  Setting this bit indicates an NSH OAM packet.  Such a packet
       is any NSH-encapsulated packet that exclusively includes SFC OAM
       data.  SFC OAM data can be included in the Fixed-Length Context
       Header, optional Context Headers, and/or the inner packet.
 
       The O bit is typically set by an OAM controller or a final
-      destination of an SFC OAM packet that triggers a response (e.g., a
+      destination of an NSH OAM packet that triggers a response (e.g., a
       specific SFC-aware SF, the last SFF of an SFP).
 
-      The O bit MUST be set for SFC OAM packets and MUST NOT be set for
+      The O bit MUST be set for NSH OAM packets and MUST NOT be set for
       non-OAM packets.  The O bit MUST NOT be modified along the SFP.
 
       NSH-encapsulated packets that include user data are not considered
-      as SFC OAM packets even if some SFC OAM data (e.g., record route)
+      as NSH OAM packets even if some SFC OAM data (e.g., record route)
       is also supplied in the packet.
 
       When SFC OAM data is included in the inner packet, the Next
@@ -165,7 +165,7 @@ NEW:
 
 
 
-Boucadair                Expires 16 October 2022                [Page 3]
+Boucadair                Expires 17 October 2022                [Page 3]
 
 Internet-Draft               SFC OAM Packet                   April 2022
 
@@ -178,12 +178,12 @@ Internet-Draft               SFC OAM Packet                   April 2022
       Next Protocol is set to 0x01 (IPv4), 0x02 (IPv6), 0x03 (MPLS), or
       0x05 (Ethernet).
 
-      An SFC OAM packet MAY include optional Context Headers (e.g., a
+      An NSH OAM packet MAY include optional Context Headers (e.g., a
       subscriber identifier [RFC8979] or a flow identifier
       [I-D.ietf-sfc-nsh-tlv]) that are used to influence the processing
       of the packet by SFC data plane elements.
 
-      An SFC OAM packet MAY include SFC OAM data in both Context Headers
+      An NSH OAM packet MAY include SFC OAM data in both Context Headers
       and the inner packet.  The processing (including the order) of the
       SFC OAM data SHOULD be specified in the relevant OAM or Context
       Header specification.
@@ -191,16 +191,16 @@ Internet-Draft               SFC OAM Packet                   April 2022
       SFC-aware SF/SFF/SFC Proxy/Classifier implementations that do not
       support SFC OAM procedures SHOULD discard packets with O bit set,
       but MAY support a configurable parameter to enable forwarding
-      received SFC OAM packets unmodified to the next element in the
-      chain.  Forwarding SFC OAM packets unmodified by SFC elements that
+      received NSH OAM packets unmodified to the next element in the
+      chain.  Forwarding NSH OAM packets unmodified by SFC elements that
       do not support SFC OAM procedures may be acceptable for a subset
       of OAM functions, but it can result in unexpected outcomes for
       others; thus, it is recommended to analyze the impact of
-      forwarding an SFC OAM packet for all OAM functions prior to
+      forwarding an NSH OAM packet for all OAM functions prior to
       enabling this behavior.  The configurable parameter MUST be
       disabled by default.
 
-      The actual format and additional processing of SFC OAM packets is
+      The actual format and additional processing of NSH OAM packets is
       outside the scope of this specification.
 
 
@@ -215,13 +215,13 @@ Internet-Draft               SFC OAM Packet                   April 2022
    Additional security considerations related to SFC OAM are discussed
    in Section 9 of [RFC8924].
 
-   Any data included in an SFC OAM packet SHOULD be integrity-protected
+   Any data included in an NSH OAM packet SHOULD be integrity-protected
    [RFC9145].
 
 
 
 
-Boucadair                Expires 16 October 2022                [Page 4]
+Boucadair                Expires 17 October 2022                [Page 4]
 
 Internet-Draft               SFC OAM Packet                   April 2022
 
@@ -277,7 +277,7 @@ Internet-Draft               SFC OAM Packet                   April 2022
 
 
 
-Boucadair                Expires 16 October 2022                [Page 5]
+Boucadair                Expires 17 October 2022                [Page 5]
 
 Internet-Draft               SFC OAM Packet                   April 2022
 
@@ -333,4 +333,4 @@ Author's Address
 
 
 
-Boucadair                Expires 16 October 2022                [Page 6]
+Boucadair                Expires 17 October 2022                [Page 6]
