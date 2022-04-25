@@ -4,9 +4,9 @@
 
 sfc                                                         M. Boucadair
 Internet-Draft                                                    Orange
-Updates: 8300 (if approved)                                15 April 2022
+Updates: 8300 (if approved)                                25 April 2022
 Intended status: Standards Track                                        
-Expires: 17 October 2022
+Expires: 27 October 2022
 
 
       OAM Packet and Behavior in the Network Service Header (NSH)
@@ -35,7 +35,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 17 October 2022.
+   This Internet-Draft will expire on 27 October 2022.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Boucadair                Expires 17 October 2022                [Page 1]
+Boucadair                Expires 27 October 2022                [Page 1]
 
 Internet-Draft               SFC OAM Packet                   April 2022
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Boucadair                Expires 17 October 2022                [Page 2]
+Boucadair                Expires 27 October 2022                [Page 2]
 
 Internet-Draft               SFC OAM Packet                   April 2022
 
@@ -165,7 +165,7 @@ NEW:
 
 
 
-Boucadair                Expires 17 October 2022                [Page 3]
+Boucadair                Expires 27 October 2022                [Page 3]
 
 Internet-Draft               SFC OAM Packet                   April 2022
 
@@ -221,7 +221,7 @@ Internet-Draft               SFC OAM Packet                   April 2022
 
 
 
-Boucadair                Expires 17 October 2022                [Page 4]
+Boucadair                Expires 27 October 2022                [Page 4]
 
 Internet-Draft               SFC OAM Packet                   April 2022
 
@@ -277,7 +277,7 @@ Internet-Draft               SFC OAM Packet                   April 2022
 
 
 
-Boucadair                Expires 17 October 2022                [Page 5]
+Boucadair                Expires 27 October 2022                [Page 5]
 
 Internet-Draft               SFC OAM Packet                   April 2022
 
@@ -333,4 +333,4 @@ Author's Address
 
 
 
-Boucadair                Expires 17 October 2022                [Page 6]
+Boucadair                Expires 27 October 2022                [Page 6]
