@@ -110,71 +110,77 @@
       <t>This document updates Section 2.2 of <xref target="RFC8300"></xref>
       as follows:</t>
 
-      <t>OLD: <list style="hanging">
-          <t hangText="O bit:">Setting this bit indicates an OAM packet (see
-          [RFC6291]). The actual format and processing of SFC OAM packets is
-          outside the scope of this specification (for example, see
-          [SFC-OAM-FRAMEWORK] for one approach).<vspace blankLines="1" />The O
-          bit MUST be set for OAM packets and MUST NOT be set for non-OAM
-          packets. The O bit MUST NOT be modified along the SFP.<vspace
-          blankLines="1" />SF/SFF/SFC Proxy/Classifier implementations that do
-          not support SFC OAM procedures SHOULD discard packets with O bit
-          set, but MAY support a configurable parameter to enable forwarding
-          received SFC OAM packets unmodified to the next element in the
-          chain. Forwarding OAM packets unmodified by SFC elements that do not
-          support SFC OAM procedures may be acceptable for a subset of OAM
-          functions, but it can result in unexpected outcomes for others;
-          thus, it is recommended to analyze the impact of forwarding an OAM
-          packet for all OAM functions prior to enabling this behavior. The
-          configurable parameter MUST be disabled by default.</t>
-        </list></t>
+      <t><list style="hanging">
+          <t hangText="OLD: "><vspace blankLines="1" /><list style="hanging">
+              <t hangText="O bit:">Setting this bit indicates an OAM packet
+              (see [RFC6291]). The actual format and processing of SFC OAM
+              packets is outside the scope of this specification (for example,
+              see [SFC-OAM-FRAMEWORK] for one approach).<vspace
+              blankLines="1" />The O bit MUST be set for OAM packets and MUST
+              NOT be set for non-OAM packets. The O bit MUST NOT be modified
+              along the SFP.<vspace blankLines="1" />SF/SFF/SFC
+              Proxy/Classifier implementations that do not support SFC OAM
+              procedures SHOULD discard packets with O bit set, but MAY
+              support a configurable parameter to enable forwarding received
+              SFC OAM packets unmodified to the next element in the chain.
+              Forwarding OAM packets unmodified by SFC elements that do not
+              support SFC OAM procedures may be acceptable for a subset of OAM
+              functions, but it can result in unexpected outcomes for others;
+              thus, it is recommended to analyze the impact of forwarding an
+              OAM packet for all OAM functions prior to enabling this
+              behavior. The configurable parameter MUST be disabled by
+              default.</t>
+            </list></t>
 
-      <t>NEW:<list style="hanging">
-          <t hangText="O bit:">Setting this bit indicates an NSH OAM packet.
-          Such a packet is any NSH-encapsulated packet that exclusively
-          includes SFC OAM data. SFC OAM data can be included in the
-          Fixed-Length Context Header, optional Context Headers, and/or the
-          inner packet. <vspace blankLines="1" />The O bit is typically set by
-          an OAM controller or a final destination of an NSH OAM packet that
-          triggers a response (e.g., a specific SFC-aware SF, the last SFF of
-          an SFP). <vspace blankLines="1" />The O bit MUST be set for NSH OAM
-          packets and MUST NOT be set for non-OAM packets. The O bit MUST NOT
-          be modified along the SFP.<vspace blankLines="1" />NSH-encapsulated
-          packets that include user data are not considered as NSH OAM packets
-          even if some SFC OAM data (e.g., record route) is also supplied in
-          the packet. <vspace blankLines="1" />When SFC OAM data is included
-          in the inner packet, the Next Protocol field is set to reflect the
-          structure of that inner OAM packet. The setting and processing of
-          the O bit neither assumes nor expects detailed analysis of the
-          content of any inner IP packet carried by the NSH. As such, SFFs,
-          SFC-aware SFs, and SFC Proxies SHOULD discard any NSH packets with
-          the O bit set and Next Protocol set to something that is not itself
-          an OAM protocol. This includes discarding the packet when the O bit
-          is set and the Next Protocol is set to 0x01 (IPv4), 0x02 (IPv6),
-          0x03 (MPLS), or 0x05 (Ethernet).<vspace blankLines="1" />An NSH OAM
-          packet MAY include optional Context Headers (e.g., a subscriber
-          identifier <xref target="RFC8979"></xref> or a flow identifier <xref
-          target="I-D.ietf-sfc-nsh-tlv"></xref>) that are used to influence
-          the processing of the packet by SFC data plane elements. <vspace
-          blankLines="1" />An NSH OAM packet MAY include SFC OAM data in both
-          Context Headers and the inner packet. The processing (including the
-          order) of the SFC OAM data SHOULD be specified in the relevant OAM
-          or Context Header specification. <vspace blankLines="1" />SFC-aware
-          SF/SFF/SFC Proxy/Classifier implementations that do not support SFC
-          OAM procedures SHOULD discard packets with O bit set, but MAY
-          support a configurable parameter to enable forwarding received NSH
-          OAM packets unmodified to the next element in the chain. Forwarding
-          NSH OAM packets unmodified by SFC data plane elements that do not
-          support SFC OAM procedures may be acceptable for a subset of OAM
-          functions, but it can result in unexpected outcomes for others;
-          thus, it is recommended to analyze the impact of forwarding an NSH
-          OAM packet for all OAM functions prior to enabling this behavior.
-          The configurable parameter MUST be disabled by default. <vspace
-          blankLines="1" />The actual format and additional processing of NSH
-          OAM packets is outside the scope of this specification.</t>
+          <t hangText="NEW: "><vspace blankLines="1" /><list style="hanging">
+              <t hangText="O bit:">Setting this bit indicates an NSH OAM
+              packet. Such a packet is any NSH-encapsulated packet that
+              exclusively includes SFC OAM data. SFC OAM data can be included
+              in the Fixed-Length Context Header, optional Context Headers,
+              and/or the inner packet. <vspace blankLines="1" />The O bit is
+              typically set by an OAM controller or a final destination of an
+              NSH OAM packet that triggers a response (e.g., a specific
+              SFC-aware SF, the last SFF of an SFP). <vspace
+              blankLines="1" />The O bit MUST be set for NSH OAM packets and
+              MUST NOT be set for non-OAM packets. The O bit MUST NOT be
+              modified along the SFP.<vspace blankLines="1" />NSH-encapsulated
+              packets that include user data are not considered as NSH OAM
+              packets even if some SFC OAM data (e.g., record route) is also
+              supplied in the packet. <vspace blankLines="1" />When SFC OAM
+              data is included in the inner packet, the Next Protocol field is
+              set to reflect the structure of that inner OAM packet. The
+              setting and processing of the O bit neither assumes nor expects
+              detailed analysis of the content of any inner IP packet carried
+              by the NSH. As such, SFFs, SFC-aware SFs, and SFC Proxies SHOULD
+              discard any NSH packets with the O bit set and Next Protocol set
+              to something that is not itself an OAM protocol. This includes
+              discarding the packet when the O bit is set and the Next
+              Protocol is set to 0x01 (IPv4), 0x02 (IPv6), 0x03 (MPLS), or
+              0x05 (Ethernet).<vspace blankLines="1" />An NSH OAM packet MAY
+              include optional Context Headers (e.g., a subscriber identifier
+              <xref target="RFC8979"></xref> or a flow identifier <xref
+              target="I-D.ietf-sfc-nsh-tlv"></xref>) that are used to
+              influence the processing of the packet by SFC data plane
+              elements. <vspace blankLines="1" />An NSH OAM packet MAY include
+              SFC OAM data in both Context Headers and the inner packet. The
+              processing (including the order) of the SFC OAM data SHOULD be
+              specified in the relevant OAM or Context Header specification.
+              <vspace blankLines="1" />SFC-aware SF/SFF/SFC Proxy/Classifier
+              implementations that do not support SFC OAM procedures SHOULD
+              discard packets with O bit set, but MAY support a configurable
+              parameter to enable forwarding received NSH OAM packets
+              unmodified to the next element in the chain. Forwarding NSH OAM
+              packets unmodified by SFC data plane elements that do not
+              support SFC OAM procedures may be acceptable for a subset of OAM
+              functions, but it can result in unexpected outcomes for others;
+              thus, it is recommended to analyze the impact of forwarding an
+              NSH OAM packet for all OAM functions prior to enabling this
+              behavior. The configurable parameter MUST be disabled by
+              default. <vspace blankLines="1" />The actual format and
+              additional processing of NSH OAM packets is outside the scope of
+              this specification.</t>
+            </list></t>
         </list></t>
-
-      <t></t>
     </section>
 
     <section title="IANA Considerations">
