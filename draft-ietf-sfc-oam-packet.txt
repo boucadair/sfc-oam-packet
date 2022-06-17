@@ -4,13 +4,13 @@
 
 sfc                                                         M. Boucadair
 Internet-Draft                                                    Orange
-Updates: 8300 (if approved)                                25 April 2022
+Updates: 8300 (if approved)                                 17 June 2022
 Intended status: Standards Track                                        
-Expires: 27 October 2022
+Expires: 19 December 2022
 
 
       OAM Packet and Behavior in the Network Service Header (NSH)
-                      draft-ietf-sfc-oam-packet-00
+                      draft-ietf-sfc-oam-packet-02
 
 Abstract
 
@@ -35,7 +35,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 27 October 2022.
+   This Internet-Draft will expire on 19 December 2022.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Boucadair                Expires 27 October 2022                [Page 1]
+Boucadair               Expires 19 December 2022                [Page 1]
 
-Internet-Draft               SFC OAM Packet                   April 2022
+Internet-Draft               SFC OAM Packet                    June 2022
 
 
 Table of Contents
@@ -64,7 +64,7 @@ Table of Contents
    2.  Terminology . . . . . . . . . . . . . . . . . . . . . . . . .   2
    3.  An Update to RFC8300  . . . . . . . . . . . . . . . . . . . .   3
    4.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   4
-   5.  Security Considerations . . . . . . . . . . . . . . . . . . .   4
+   5.  Security Considerations . . . . . . . . . . . . . . . . . . .   5
    6.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .   5
    7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   5
      7.1.  Normative References  . . . . . . . . . . . . . . . . . .   5
@@ -85,7 +85,7 @@ Table of Contents
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
    "OPTIONAL" in this document are to be interpreted as described in BCP
-   14 [RFC2119][RFC8174] when, and only when, they appear in all
+   14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
    This document makes use of the terms defined in [RFC7665] and
@@ -93,26 +93,31 @@ Table of Contents
 
    The document defines the following terms:
 
-   SFC data plane element:  refers to SFC-aware SF, SFF, SFC Proxy, or
-      Classifier as defined in the SFC data plane architecture [RFC7665]
-      and further refined in [RFC8300].
+   SFC data plane element:  refers to SFC-aware Service Function (SF),
+      Service Function Forwarder (SFF), SFC Proxy, or Classifier as
+      defined in the SFC data plane architecture [RFC7665] and further
+      refined in [RFC8300].
 
    OAM control element:  an NSH-aware element that is capable of
       generating NSH OAM packets.  An SFC data plane element may behave
       as an OAM control element.
 
    SFC OAM data:  refers to an OAM request (e.g., Connectivity
+
+
+
+
+
+
+Boucadair               Expires 19 December 2022                [Page 2]
+
+Internet-Draft               SFC OAM Packet                    June 2022
+
+
       Verification and Continuity Checks [RFC7276]), any data that
       influences how to execute a companion OAM request (e.g., identity
-      of a terminating Service Function (SF)), the output data of an OAM
-      request, and any combination thereof.
-
-
-
-Boucadair                Expires 27 October 2022                [Page 2]
-
-Internet-Draft               SFC OAM Packet                   April 2022
-
+      of a terminating SF), the output data of an OAM request, and any
+      combination thereof.
 
    User data:  refers to user packets cited in Section 5.7 of [RFC7665].
 
@@ -120,15 +125,15 @@ Internet-Draft               SFC OAM Packet                   April 2022
 
    This document updates Section 2.2 of [RFC8300] as follows:
 
-OLD:
+   OLD:
 
    O bit:  Setting this bit indicates an OAM packet (see [RFC6291]).
       The actual format and processing of SFC OAM packets is outside the
       scope of this specification (for example, see [SFC-OAM-FRAMEWORK]
       for one approach).
 
-      The O bit MUST be set for OAM packets and MUST NOT be set for
-      non-OAM packets.  The O bit MUST NOT be modified along the SFP.
+      The O bit MUST be set for OAM packets and MUST NOT be set for non-
+      OAM packets.  The O bit MUST NOT be modified along the SFP.
 
       SF/SFF/SFC Proxy/Classifier implementations that do not support
       SFC OAM procedures SHOULD discard packets with O bit set, but MAY
@@ -141,7 +146,7 @@ OLD:
       packet for all OAM functions prior to enabling this behavior.  The
       configurable parameter MUST be disabled by default.
 
-NEW:
+   NEW:
 
    O bit:  Setting this bit indicates an NSH OAM packet.  Such a packet
       is any NSH-encapsulated packet that exclusively includes SFC OAM
@@ -155,6 +160,16 @@ NEW:
       The O bit MUST be set for NSH OAM packets and MUST NOT be set for
       non-OAM packets.  The O bit MUST NOT be modified along the SFP.
 
+
+
+
+
+
+Boucadair               Expires 19 December 2022                [Page 3]
+
+Internet-Draft               SFC OAM Packet                    June 2022
+
+
       NSH-encapsulated packets that include user data are not considered
       as NSH OAM packets even if some SFC OAM data (e.g., record route)
       is also supplied in the packet.
@@ -162,14 +177,6 @@ NEW:
       When SFC OAM data is included in the inner packet, the Next
       Protocol field is set to reflect the structure of that inner OAM
       packet.  The setting and processing of the O bit neither assumes
-
-
-
-Boucadair                Expires 27 October 2022                [Page 3]
-
-Internet-Draft               SFC OAM Packet                   April 2022
-
-
       nor expects detailed analysis of the content of any inner IP
       packet carried by the NSH.  As such, SFFs, SFC-aware SFs, and SFC
       Proxies SHOULD discard any NSH packets with the O bit set and Next
@@ -208,6 +215,17 @@ Internet-Draft               SFC OAM Packet                   April 2022
 
    This document does not make any request to IANA.
 
+
+
+
+
+
+
+Boucadair               Expires 19 December 2022                [Page 4]
+
+Internet-Draft               SFC OAM Packet                    June 2022
+
+
 5.  Security Considerations
 
    Data plane SFC-related security considerations, including privacy,
@@ -217,14 +235,6 @@ Internet-Draft               SFC OAM Packet                   April 2022
 
    Any data included in an NSH OAM packet SHOULD be integrity-protected
    [RFC9145].
-
-
-
-
-Boucadair                Expires 27 October 2022                [Page 4]
-
-Internet-Draft               SFC OAM Packet                   April 2022
-
 
 6.  Acknowledgments
 
@@ -258,29 +268,39 @@ Internet-Draft               SFC OAM Packet                   April 2022
 
 7.2.  Informative References
 
+
+
+
+
+
+
+
+
+
+Boucadair               Expires 19 December 2022                [Page 5]
+
+Internet-Draft               SFC OAM Packet                    June 2022
+
+
    [I-D.ietf-sfc-nsh-tlv]
               Wei, Y., Elzur, U., Majee, S., Pignataro, C., and D. E.
-              Eastlake, "Network Service Header Metadata Type 2
+              Eastlake, "Network Service Header (NSH) Metadata Type 2
               Variable-Length Context Headers", Work in Progress,
-              Internet-Draft, draft-ietf-sfc-nsh-tlv-14, 30 March 2022,
+              Internet-Draft, draft-ietf-sfc-nsh-tlv-15, 20 April 2022,
               <https://www.ietf.org/archive/id/draft-ietf-sfc-nsh-tlv-
-              14.txt>.
+              15.txt>.
+
+   [RFC6291]  Andersson, L., van Helvoort, H., Bonica, R., Romascanu,
+              D., and S. Mansfield, "Guidelines for the Use of the "OAM"
+              Acronym in the IETF", BCP 161, RFC 6291,
+              DOI 10.17487/RFC6291, June 2011,
+              <https://www.rfc-editor.org/info/rfc6291>.
 
    [RFC7276]  Mizrahi, T., Sprecher, N., Bellagamba, E., and Y.
               Weingarten, "An Overview of Operations, Administration,
               and Maintenance (OAM) Tools", RFC 7276,
               DOI 10.17487/RFC7276, June 2014,
               <https://www.rfc-editor.org/info/rfc7276>.
-
-
-
-
-
-
-Boucadair                Expires 27 October 2022                [Page 5]
-
-Internet-Draft               SFC OAM Packet                   April 2022
-
 
    [RFC7665]  Halpern, J., Ed. and C. Pignataro, Ed., "Service Function
               Chaining (SFC) Architecture", RFC 7665,
@@ -313,24 +333,4 @@ Author's Address
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Boucadair                Expires 27 October 2022                [Page 6]
+Boucadair               Expires 19 December 2022                [Page 6]

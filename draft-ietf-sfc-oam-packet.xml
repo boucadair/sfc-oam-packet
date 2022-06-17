@@ -10,7 +10,7 @@
 <?rfc inline="yes"?>
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
-<rfc category="std" docName="draft-ietf-sfc-oam-packet-00" ipr="trust200902"
+<rfc category="std" docName="draft-ietf-sfc-oam-packet-02" ipr="trust200902"
      updates="8300">
   <front>
     <title abbrev="SFC OAM Packet">OAM Packet and Behavior in the Network
@@ -78,17 +78,18 @@
       <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
       "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
       "OPTIONAL" in this document are to be interpreted as described in BCP 14
-      <xref target="RFC2119"></xref><xref target="RFC8174"></xref> when, and
+      <xref target="RFC2119"></xref> <xref target="RFC8174"></xref> when, and
       only when, they appear in all capitals, as shown here.</t>
 
       <t>This document makes use of the terms defined in <xref
       target="RFC7665"></xref> and <xref target="RFC8300"></xref>.</t>
 
       <t>The document defines the following terms:<list style="hanging">
-          <t hangText="SFC data plane element:">refers to SFC-aware SF, SFF,
-          SFC Proxy, or Classifier as defined in the SFC data plane
-          architecture <xref target="RFC7665"></xref> and further refined in
-          <xref target="RFC8300"></xref>.</t>
+          <t hangText="SFC data plane element:">refers to SFC-aware Service
+          Function (SF), Service Function Forwarder (SFF), SFC Proxy, or
+          Classifier as defined in the SFC data plane architecture <xref
+          target="RFC7665"></xref> and further refined in <xref
+          target="RFC8300"></xref>.</t>
 
           <t hangText="OAM control element:">an NSH-aware element that is
           capable of generating NSH OAM packets. An SFC data plane element may
@@ -97,9 +98,8 @@
           <t hangText="SFC OAM data:">refers to an OAM request (e.g.,
           Connectivity Verification and Continuity Checks <xref
           target="RFC7276"></xref>), any data that influences how to execute a
-          companion OAM request (e.g., identity of a terminating Service
-          Function (SF)), the output data of an OAM request, and any
-          combination thereof.</t>
+          companion OAM request (e.g., identity of a terminating SF), the
+          output data of an OAM request, and any combination thereof.</t>
 
           <t hangText="User data:">refers to user packets cited in Section 5.7
           of <xref target="RFC7665"></xref>.</t>
@@ -110,34 +110,26 @@
       <t>This document updates Section 2.2 of <xref target="RFC8300"></xref>
       as follows:</t>
 
-      <figure>
-        <artwork><![CDATA[OLD: 
+      <t>OLD: <list style="hanging">
+          <t hangText="O bit:">Setting this bit indicates an OAM packet (see
+          [RFC6291]). The actual format and processing of SFC OAM packets is
+          outside the scope of this specification (for example, see
+          [SFC-OAM-FRAMEWORK] for one approach).<vspace blankLines="1" />The O
+          bit MUST be set for OAM packets and MUST NOT be set for non-OAM
+          packets. The O bit MUST NOT be modified along the SFP.<vspace
+          blankLines="1" />SF/SFF/SFC Proxy/Classifier implementations that do
+          not support SFC OAM procedures SHOULD discard packets with O bit
+          set, but MAY support a configurable parameter to enable forwarding
+          received SFC OAM packets unmodified to the next element in the
+          chain. Forwarding OAM packets unmodified by SFC elements that do not
+          support SFC OAM procedures may be acceptable for a subset of OAM
+          functions, but it can result in unexpected outcomes for others;
+          thus, it is recommended to analyze the impact of forwarding an OAM
+          packet for all OAM functions prior to enabling this behavior. The
+          configurable parameter MUST be disabled by default.</t>
+        </list></t>
 
-   O bit:  Setting this bit indicates an OAM packet (see [RFC6291]).
-      The actual format and processing of SFC OAM packets is outside the
-      scope of this specification (for example, see [SFC-OAM-FRAMEWORK]
-      for one approach).
-
-      The O bit MUST be set for OAM packets and MUST NOT be set for
-      non-OAM packets.  The O bit MUST NOT be modified along the SFP.
-
-      SF/SFF/SFC Proxy/Classifier implementations that do not support
-      SFC OAM procedures SHOULD discard packets with O bit set, but MAY
-      support a configurable parameter to enable forwarding received SFC
-      OAM packets unmodified to the next element in the chain.
-      Forwarding OAM packets unmodified by SFC elements that do not
-      support SFC OAM procedures may be acceptable for a subset of OAM
-      functions, but it can result in unexpected outcomes for others;
-      thus, it is recommended to analyze the impact of forwarding an OAM
-      packet for all OAM functions prior to enabling this behavior.  The
-      configurable parameter MUST be disabled by default.
-
-NEW:
-
-]]></artwork>
-      </figure>
-
-      <t><list style="hanging">
+      <t>NEW:<list style="hanging">
           <t hangText="O bit:">Setting this bit indicates an NSH OAM packet.
           Such a packet is any NSH-encapsulated packet that exclusively
           includes SFC OAM data. SFC OAM data can be included in the
@@ -228,6 +220,8 @@ NEW:
       <?rfc include='reference.RFC.8924'?>
 
       <?rfc include='reference.RFC.7276'?>
+
+      <?rfc include='reference.RFC.6291'?>
     </references>
   </back>
 </rfc>
