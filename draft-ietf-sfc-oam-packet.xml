@@ -156,9 +156,13 @@
               to something that is not itself an OAM protocol. This includes
               discarding the packet when the O bit is set and the Next
               Protocol is set to 0x01 (IPv4), 0x02 (IPv6), 0x03 (MPLS), or
-              0x05 (Ethernet).<vspace blankLines="1" />An NSH OAM packet MAY
-              include optional Context Headers (e.g., a subscriber identifier
-              <xref target="RFC8979"></xref> or a flow identifier <xref
+              0x05 (Ethernet). This is meant to prevent non deterministic
+              behaviors, e.g., at SFs that receive such packets. SFC data
+              plane elements MAY support a configuration parameter to filter
+              valid Next Protocol values in NSH OAM packets. <vspace
+              blankLines="1" />An NSH OAM packet MAY include optional Context
+              Headers (e.g., a subscriber identifier <xref
+              target="RFC8979"></xref> or a flow identifier <xref
               target="I-D.ietf-sfc-nsh-tlv"></xref>) that are used to
               influence the processing of the packet by SFC data plane
               elements. <vspace blankLines="1" />An NSH OAM packet MAY include
@@ -202,6 +206,9 @@
       <t>Thanks to Jim Guichard, Greg Mirsky, Joel Halpern, Christian
       Jacquenet, Dirk von-Hugo, Carlos Pignataro, and Frank Brockners for the
       comments.</t>
+
+      <t>Thanks to Barry Leiba for the art directorate review and Russ Housley
+      for the security directorate review. </t>
     </section>
   </middle>
 

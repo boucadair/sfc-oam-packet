@@ -4,9 +4,9 @@
 
 sfc                                                         M. Boucadair
 Internet-Draft                                                    Orange
-Updates: 8300 (if approved)                                 17 June 2022
+Updates: 8300 (if approved)                             15 November 2022
 Intended status: Standards Track                                        
-Expires: 19 December 2022
+Expires: 19 May 2023
 
 
       OAM Packet and Behavior in the Network Service Header (NSH)
@@ -35,7 +35,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 19 December 2022.
+   This Internet-Draft will expire on 19 May 2023.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Boucadair               Expires 19 December 2022                [Page 1]
+Boucadair                  Expires 19 May 2023                  [Page 1]
 
-Internet-Draft               SFC OAM Packet                    June 2022
+Internet-Draft               SFC OAM Packet                November 2022
 
 
 Table of Contents
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Boucadair               Expires 19 December 2022                [Page 2]
+Boucadair                  Expires 19 May 2023                  [Page 2]
 
-Internet-Draft               SFC OAM Packet                    June 2022
+Internet-Draft               SFC OAM Packet                November 2022
 
 
       Verification and Continuity Checks [RFC7276]), any data that
@@ -165,9 +165,9 @@ Internet-Draft               SFC OAM Packet                    June 2022
 
 
 
-Boucadair               Expires 19 December 2022                [Page 3]
+Boucadair                  Expires 19 May 2023                  [Page 3]
 
-Internet-Draft               SFC OAM Packet                    June 2022
+Internet-Draft               SFC OAM Packet                November 2022
 
 
          NSH-encapsulated packets that include user data are not
@@ -183,7 +183,11 @@ Internet-Draft               SFC OAM Packet                    June 2022
          bit set and Next Protocol set to something that is not itself
          an OAM protocol.  This includes discarding the packet when the
          O bit is set and the Next Protocol is set to 0x01 (IPv4), 0x02
-         (IPv6), 0x03 (MPLS), or 0x05 (Ethernet).
+         (IPv6), 0x03 (MPLS), or 0x05 (Ethernet).  This is meant to
+         prevent non deterministic behaviors, e.g., at SFs that receive
+         such packets.  SFC data plane elements MAY support a
+         configuration parameter to filter valid Next Protocol values in
+         NSH OAM packets.
 
          An NSH OAM packet MAY include optional Context Headers (e.g., a
          subscriber identifier [RFC8979] or a flow identifier
@@ -217,13 +221,9 @@ Internet-Draft               SFC OAM Packet                    June 2022
 
 
 
-
-
-
-
-Boucadair               Expires 19 December 2022                [Page 4]
+Boucadair                  Expires 19 May 2023                  [Page 4]
 
-Internet-Draft               SFC OAM Packet                    June 2022
+Internet-Draft               SFC OAM Packet                November 2022
 
 
 5.  Security Considerations
@@ -241,6 +241,9 @@ Internet-Draft               SFC OAM Packet                    June 2022
    Thanks to Jim Guichard, Greg Mirsky, Joel Halpern, Christian
    Jacquenet, Dirk von-Hugo, Carlos Pignataro, and Frank Brockners for
    the comments.
+
+   Thanks to Barry Leiba for the art directorate review and Russ Housley
+   for the security directorate review.
 
 7.  References
 
@@ -268,23 +271,17 @@ Internet-Draft               SFC OAM Packet                    June 2022
 
 7.2.  Informative References
 
-
-
-
-
-
-
-
-
-
-Boucadair               Expires 19 December 2022                [Page 5]
-
-Internet-Draft               SFC OAM Packet                    June 2022
-
-
    [I-D.ietf-sfc-nsh-tlv]
-              Wei, Y., Elzur, U., Majee, S., Pignataro, C., and D. E.
+              Wei, Y., Elzur, U., Majee, S., Pignataro, C., and E.
               Eastlake, "Network Service Header (NSH) Metadata Type 2
+
+
+
+Boucadair                  Expires 19 May 2023                  [Page 5]
+
+Internet-Draft               SFC OAM Packet                November 2022
+
+
               Variable-Length Context Headers", Work in Progress,
               Internet-Draft, draft-ietf-sfc-nsh-tlv-15, 20 April 2022,
               <https://www.ietf.org/archive/id/draft-ietf-sfc-nsh-tlv-
@@ -333,4 +330,7 @@ Author's Address
 
 
 
-Boucadair               Expires 19 December 2022                [Page 6]
+
+
+
+Boucadair                  Expires 19 May 2023                  [Page 6]
