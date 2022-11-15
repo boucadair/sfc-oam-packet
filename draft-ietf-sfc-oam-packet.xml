@@ -162,13 +162,13 @@
               (MPLS), or 0x05 (Ethernet). <vspace blankLines="1" />An NSH OAM
               packet MAY include optional Context Headers (e.g., a subscriber
               identifier <xref target="RFC8979"></xref> or a flow identifier
-              <xref target="I-D.ietf-sfc-nsh-tlv"></xref>) that are used to
-              influence the processing of the packet by SFC data plane
-              elements. <vspace blankLines="1" />An NSH OAM packet MAY include
-              SFC OAM data in both Context Headers and the inner packet. The
-              processing (including the order) of the SFC OAM data SHOULD be
-              specified in the relevant OAM or Context Header specification.
-              <vspace blankLines="1" />SFC-aware SF/SFF/SFC Proxy/Classifier
+              <xref target="RFC9263"></xref>) that are used to influence the
+              processing of the packet by SFC data plane elements. <vspace
+              blankLines="1" />An NSH OAM packet MAY include SFC OAM data in
+              both Context Headers and the inner packet. The processing
+              (including the order) of the SFC OAM data SHOULD be specified in
+              the relevant OAM or Context Header specification. <vspace
+              blankLines="1" />SFC-aware SF/SFF/SFC Proxy/Classifier
               implementations that do not support SFC OAM procedures SHOULD
               discard packets with O bit set, but MAY support a configurable
               parameter to enable forwarding received NSH OAM packets
@@ -227,7 +227,7 @@
 
       <?rfc include='reference.RFC.8979'?>
 
-      <?rfc include='reference.I-D.ietf-sfc-nsh-tlv'?>
+      <?rfc include='reference.RFC.9263'?>
 
       <?rfc include='reference.RFC.8924'?>
 

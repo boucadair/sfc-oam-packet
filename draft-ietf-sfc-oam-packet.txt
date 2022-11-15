@@ -189,9 +189,9 @@ Internet-Draft               SFC OAM Packet                November 2022
          (IPv4), 0x02 (IPv6), 0x03 (MPLS), or 0x05 (Ethernet).
 
          An NSH OAM packet MAY include optional Context Headers (e.g., a
-         subscriber identifier [RFC8979] or a flow identifier
-         [I-D.ietf-sfc-nsh-tlv]) that are used to influence the
-         processing of the packet by SFC data plane elements.
+         subscriber identifier [RFC8979] or a flow identifier [RFC9263])
+         that are used to influence the processing of the packet by SFC
+         data plane elements.
 
          An NSH OAM packet MAY include SFC OAM data in both Context
          Headers and the inner packet.  The processing (including the
@@ -271,9 +271,9 @@ Internet-Draft               SFC OAM Packet                November 2022
 
 7.2.  Informative References
 
-   [I-D.ietf-sfc-nsh-tlv]
-              Wei, Y., Elzur, U., Majee, S., Pignataro, C., and E.
-              Eastlake, "Network Service Header (NSH) Metadata Type 2
+
+
+
 
 
 
@@ -281,11 +281,6 @@ Boucadair                  Expires 19 May 2023                  [Page 5]
 
 Internet-Draft               SFC OAM Packet                November 2022
 
-
-              Variable-Length Context Headers", Work in Progress,
-              Internet-Draft, draft-ietf-sfc-nsh-tlv-15, 20 April 2022,
-              <https://www.ietf.org/archive/id/draft-ietf-sfc-nsh-tlv-
-              15.txt>.
 
    [RFC6291]  Andersson, L., van Helvoort, H., Bonica, R., Romascanu,
               D., and S. Mansfield, "Guidelines for the Use of the "OAM"
@@ -316,6 +311,12 @@ Internet-Draft               SFC OAM Packet                November 2022
               DOI 10.17487/RFC8979, February 2021,
               <https://www.rfc-editor.org/info/rfc8979>.
 
+   [RFC9263]  Wei, Y., Ed., Elzur, U., Majee, S., Pignataro, C., and D.
+              Eastlake 3rd, "Network Service Header (NSH) Metadata Type
+              2 Variable-Length Context Headers", RFC 9263,
+              DOI 10.17487/RFC9263, August 2022,
+              <https://www.rfc-editor.org/info/rfc9263>.
+
 Author's Address
 
    Mohamed Boucadair
@@ -323,7 +324,6 @@ Author's Address
    35000 Rennes
    France
    Email: mohamed.boucadair@orange.com
-
 
 
 
