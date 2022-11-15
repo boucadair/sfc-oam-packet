@@ -151,19 +151,18 @@
               set to reflect the structure of that inner OAM packet. The
               setting and processing of the O bit neither assumes nor expects
               detailed analysis of the content of any inner IP packet carried
-              by the NSH. As such, SFFs, SFC-aware SFs, and SFC Proxies SHOULD
-              discard any NSH packets with the O bit set and Next Protocol set
-              to something that is not itself an OAM protocol. This includes
-              discarding the packet when the O bit is set and the Next
-              Protocol is set to 0x01 (IPv4), 0x02 (IPv6), 0x03 (MPLS), or
-              0x05 (Ethernet). This is meant to prevent non deterministic
-              behaviors, e.g., at SFs that receive such packets. SFC data
-              plane elements MAY support a configuration parameter to filter
-              valid Next Protocol values in NSH OAM packets. <vspace
-              blankLines="1" />An NSH OAM packet MAY include optional Context
-              Headers (e.g., a subscriber identifier <xref
-              target="RFC8979"></xref> or a flow identifier <xref
-              target="I-D.ietf-sfc-nsh-tlv"></xref>) that are used to
+              by the NSH. In order to prevent non deterministic behaviors, SFC
+              data plane elements MAY support a configuration parameter to
+              filter valid Next Protocol values in NSH OAM packets. Absent
+              explicit configuration, SFFs, SFC-aware SFs, and SFC Proxies
+              SHOULD discard any NSH packets with the O bit set and Next
+              Protocol set to something that is not itself an OAM protocol.
+              This includes discarding the packet when the O bit is set and
+              the Next Protocol is set to 0x01 (IPv4), 0x02 (IPv6), 0x03
+              (MPLS), or 0x05 (Ethernet). <vspace blankLines="1" />An NSH OAM
+              packet MAY include optional Context Headers (e.g., a subscriber
+              identifier <xref target="RFC8979"></xref> or a flow identifier
+              <xref target="I-D.ietf-sfc-nsh-tlv"></xref>) that are used to
               influence the processing of the packet by SFC data plane
               elements. <vspace blankLines="1" />An NSH OAM packet MAY include
               SFC OAM data in both Context Headers and the inner packet. The
